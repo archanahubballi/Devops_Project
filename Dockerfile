@@ -6,7 +6,7 @@ RUN yum install -y httpd zip unzip && \
     yum clean all
 
 # Download and extract the template
-ADD files/photogenic.zip /var/www/html/
+ADD https://www.free-css.com/assets/files/free-css-templates/download/page254/photozenic.zip  /var/www/html/
 WORKDIR /var/www/html/
 RUN unzip photogenic.zip && \
     cp -rvf photogenic/* . && \
