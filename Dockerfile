@@ -6,7 +6,7 @@ RUN yum install -y httpd zip unzip && \
     yum clean all
 
 # Download and extract the template
-ADD photogenic.zip /var/www/html/
+ADD files/photogenic.zip /var/www/html/
 WORKDIR /var/www/html/
 RUN unzip photogenic.zip && \
     cp -rvf photogenic/* . && \
