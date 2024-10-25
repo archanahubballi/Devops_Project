@@ -1,4 +1,4 @@
-FROM centos:latest
+FROM rockylinux:8
 LABEL maintainer="ahubballi707@gmail.com"
 
 # Install httpd, zip, and unzip
