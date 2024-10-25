@@ -5,15 +5,15 @@ LABEL maintainer="ahubballi707@gmail.com"
 RUN yum install -y httpd zip unzip && \
     yum clean all
 
-# Download and extract the template
-ADD https://www.free-css.com/assets/files/free-css-templates/download/page254/photogenic.zip /var/www/html/:
+# Add the Creative template zip file
+ADD files/creative.zip /var/www/html/
 WORKDIR /var/www/html/
-RUN unzip photogenic.zip && \
-    cp -rvf photogenic/* . && \
-    rm -rf photogenic photogenic.zip
+RUN unzip creative.zip && \
+    cp -rvf creative/* . && \
+    rm -rf creative creative.zip
 
 # Start httpd in the foreground
 CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
 
-# Expose ports
-EXPOSE 80 22
+# Expose port 80
+EXPOSE 80
