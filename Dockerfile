@@ -5,15 +5,15 @@ LABEL maintainer="ahubballi707@gmail.com"
 RUN yum install -y httpd zip unzip && \
     yum clean all
 
-# Add the Creative template zip file
-ADD files/creative.zip /var/www/html/
+# Download and extract the template
+ADD photogenic.zip /var/www/html/:
 WORKDIR /var/www/html/
-RUN unzip creative.zip && \
-    cp -rvf creative/* . && \
-    rm -rf creative creative.zip
+RUN unzip photogenic.zip && \
+    cp -rvf photogenic/* . && \
+    rm -rf photogenic photogenic.zip
 
 # Start httpd in the foreground
 CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
 
-# Expose port 80
-EXPOSE 80
+# Expose ports
+EXPOSE 80 22
