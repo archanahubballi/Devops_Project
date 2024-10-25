@@ -1,4 +1,4 @@
-FROM centos:7
+FROM centos:latest
 LABEL maintainer="ahubballi707@gmail.com"
 
 # Install httpd, zip, and unzip
