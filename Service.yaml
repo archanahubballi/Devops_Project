@@ -11,5 +11,5 @@ spec:
     nodePort: 31200
   selector: 
     app: mydevops
-  type: LoadBalancer
+  type: Nodeport
   
