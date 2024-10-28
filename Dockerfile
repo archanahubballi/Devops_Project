@@ -1,19 +1,18 @@
 FROM rockylinux:8
 LABEL maintainer="ahubballi707@gmail.com"
 
-# Install httpd, zip, and unzip
-RUN yum install -y httpd zip unzip && \
+# Install httpd
+RUN yum install -y httpd && \
     yum clean all
 
-# Download and extract the template
-ADD photogenic.zip /var/www/html/
+# Copy a simple HTML file
+COPY index.html /var/www/html/
+
+# Set the working directory
 WORKDIR /var/www/html/
-RUN unzip photogenic.zip && \
-    cp -rvf photogenic/* . && \
-    rm -rf photogenic photogenic.zip
 
 # Start httpd in the foreground
 CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
 
-# Expose ports
-EXPOSE 80 22
+# Expose port 80
+EXPOSE 80
